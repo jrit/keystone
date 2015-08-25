@@ -26,7 +26,7 @@ var ListHeaderTitle = React.createClass({
 			}
 
 			let path = el.field.path;
-			let isSelected = this.props.activeSort.path === path;
+			let isSelected = this.props.activeSort && this.props.activeSort.path === path;
 
 			return (
 				<PopoutList.Item
@@ -47,7 +47,7 @@ var ListHeaderTitle = React.createClass({
 					{this.props.title}
 					<span> sorted by </span>
 					<a id="listHeaderSortButton" href="javascript:;" onClick={this.props.openPopout}>
-						{this.props.activeSort.label.toLowerCase()}
+						{this.props.activeSort ? this.props.activeSort.label.toLowerCase() : null}
 						{this.props.invertSort ? ' (asc)' : ' (desc)'}
 						<span className="disclosure-arrow" />
 					</a>
